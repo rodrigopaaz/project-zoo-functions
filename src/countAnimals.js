@@ -9,17 +9,9 @@ const sum = all.reduce((acc,curr) => {
   array.push(acc)
   return array
   },0)
-  const pets = array.map((element, index) => {
-    {
-    nam[index],
-    element[index],
-    }
-  }
-  )
+  const pets = sum.reduce((element, index) => console.log(index),{})
 
-function countAnimals(animal = all) {
-  //const spec = species.filter((element) => element.name === animal).map((element) => element.residents);
-  return animal.filter((element) => element.name === 'bears');
+function countAnimals(animal) {
 
 }
 console.log(pets);
