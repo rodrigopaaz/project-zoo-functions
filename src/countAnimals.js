@@ -1,18 +1,30 @@
 const data = require('../data/zoo_data');
 
 const { species } = data;
-const all = species.filter((element) => element.name).map((element) => element.residents);
-const nam = species.filter((element) => element.name).map((element) => element.name);
-const array = [];
-const sum = all.reduce((acc,curr) => {
-  acc = curr.length
-  array.push(acc)
-  return array
-  },0)
-  const pets = sum.reduce((element, index) => console.log(index),{})
+/* const all = species.filter((element) => element.name).map((element) => element.residents); */
+const names = species
+  .filter((element) => element.name)
+  .map((element) => element.name);
 
-function countAnimals(animal) {
+ const animais = (...parametro) => {
+  const animals = species.find((element) => element.name === parametro[0].specie).residents;
+  const genero = animals.filter((element) => element.sex === parametro[0].sex);
+  return (Object.keys(parametro[0]).length === 1) ? animals.length : genero.length;  
+ }
+
+  const allAnimals = (...parametro) =>  {
+    const retorno = parametro.reduce((acc, atual,index) => {
+  acc[atual] = animais({ specie: atual })
+  return acc
+},{})
+  return retorno
+  } 
+
+function countAnimals(animal = '') {
+return animal.length <= 0 ? (allAnimals(...names)) :
+animais(animal);
 
 }
-console.log(pets);
+console.log(countAnimals());
+
 module.exports = countAnimals;
