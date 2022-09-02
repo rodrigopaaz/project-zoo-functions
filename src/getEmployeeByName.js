@@ -14,5 +14,3 @@ function getEmployeeByName(employeeName) {
 }
 
 module.exports = getEmployeeByName;
-
-console.log(getEmployeeByName());
