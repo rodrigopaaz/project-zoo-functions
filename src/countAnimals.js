@@ -17,7 +17,7 @@ const animais = (...parametro) => {
 };
 
 const allAnimals = (...parametro) => {
-  const retorno = parametro.reduce((acc, atual, index) => {
+  const retorno = parametro.reduce((acc, atual) => {
     acc[atual] = animais({ specie: atual });
     return acc;
   }, {});
@@ -27,6 +27,5 @@ const allAnimals = (...parametro) => {
 function countAnimals(animal = '') {
   return animal.length <= 0 ? allAnimals(...names) : animais(animal);
 }
-console.log(countAnimals());
-
+console.log(names);
 module.exports = countAnimals;
